@@ -11,11 +11,14 @@ class noteController extends Controller
 {
 
        public function addNote(Request $request){
-            $response = Http::post('note-taking.my.id/public/note/add',[
+            $token = Cookie::get('token');
+            $response = Http::withHeaders([
+                'token' => $token
+            ])->post('note-taking.my.id/public/note/add',[
             'judul' => $request->judul,
             'content' => $request->content
             ]);
-        
+
             $hasil = json_decode($response);
         if($hasil->success){
             // return $hasil;
@@ -23,7 +26,7 @@ class noteController extends Controller
         }
         return "masukkan data";
         }
- 
+
 
     public function deleteNote(Request $request){
         $id = $request->id;
@@ -36,6 +39,12 @@ class noteController extends Controller
             return $request;
         }
     }
+
+    public function update(Request $request){
+        $id = $request->id;
+        return view('update' , ['id' => $id]);
+    }
+
     public function updateNote(Request $request){
         $id = $request->id;
         $token = Cookie::get('token');
@@ -47,4 +56,5 @@ class noteController extends Controller
             return $request;
         }
     }
+
 }

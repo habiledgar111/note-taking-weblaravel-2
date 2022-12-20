@@ -19,10 +19,10 @@
           <li class="dropdown messages-menu">
           <li><a href="dashboard"><i class="fa fa-home"></i> Home</a></li>
           <li><a href="./add"><i class="fa fa-plus"></i> Add</a></li>
-          <li><a href="./update"><i class="fa fa-edit"></i> Update</a></li>
-          <li><a href="./add"><i class="fa fa-trash"></i> Delete</a></li>
-         
-                    
+          <!-- <li><a href="./update"><i class="fa fa-edit"></i> Update</a></li>
+          <li><a href="./add"><i class="fa fa-trash"></i> Delete</a></li> -->
+
+
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -52,7 +52,7 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
-                
+
               </li> -->
               <!-- Menu Footer-->
               <li class="user-footer">
@@ -73,4 +73,3 @@
       </div>
     </nav>
   </header>
-  

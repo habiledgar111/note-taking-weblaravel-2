@@ -33,20 +33,20 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row"> 
+                        <div class="row">
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900">Welcome Back!</h1>
                                         <p>Please Login</p>
                                     </div>
-                                    
-                                   <form  action="{{ url('actionlogin') }}" method="post" class="user">
+
+                                   <form  action="actionlogin" method="post" class="user">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" id="email" name="email" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Password">
+                                            <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -54,10 +54,7 @@
                                                 <label class="custom-control-label" for="customCheck">Remember Me</label>
                                             </div>
                                         </div>
-                                        
-                                        <a href="{{ url('dashboard')}}" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <input type="submit" value="submit" class="btn btn-primary btn-user btn-block">
                                     </form>
                                     <hr>
                                     <!-- <div class="text-center">

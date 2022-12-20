@@ -28,7 +28,7 @@ class authController extends Controller
             // return $hasil;
             Cookie::queue('token',$hasil->token,120);
             $get = Cookie::get('token');
-            return view ('home');
+            return view ('dashboard');
         }
 
         return "maaf gagal login";

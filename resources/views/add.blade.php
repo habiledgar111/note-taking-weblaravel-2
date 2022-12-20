@@ -27,7 +27,7 @@
         </div>
 
         <div class="box-body">
-         
+
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-11">
@@ -42,21 +42,20 @@
                           <h1 class="h4 text-gray-900 mb-4"></h1>
                         </div>
 
-                          <form  action="{{ url('/actionregister') }}" method="post" class="user">
+                          <form  action="addNote" method="post" class="user">
+                            @csrf
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="Name" placeholder="Judul">
-                                </div>  
-                                <div class="form-group">
-                                    <textarea name="content" class="form-control form-control-user " placeholder="Content" cols="30" rows="12">{{ old('content') }}</textarea>
+                                    <input type="text" class="form-control form-control-user" id="judul" name="judul" placeholder="Judul">
                                 </div>
-                              
-                                <a href="{{ url('dashboard')}}" class="btn btn-primary btn-user btn-block">
-                                    Add Notes
-                                </a>
+                                <div class="form-group">
+                                    <textarea name="content" id="content" class="form-control form-control-user " placeholder="Content" cols="30" rows="12"></textarea>
+                                </div>
+
+                                <input type="submit" value="submit" class="btn btn-primary btn-user btn-block">
                             </form>
 
                             <hr>
-                            
+
                         </div>
                       </div>
                     </div>
@@ -68,8 +67,8 @@
 
         </div>
         <!-- /.box-body -->
-        
-      
+
+
 
         <!-- /.box-footer-->
       </div>

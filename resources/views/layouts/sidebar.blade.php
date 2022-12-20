@@ -1,4 +1,9 @@
 <aside class="main-sidebar">
+<?php
+    use Illuminate\Support\Facades\Cookie;
+    use Illuminate\Support\Facades\Http;
+    use Illuminate\Support\Facades\Response;
+?>
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
@@ -8,7 +13,7 @@
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
-      
+
         </div>
       </div> -->
       <!-- search form -->
@@ -24,7 +29,14 @@
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
+        <?php
+        $token = Cookie::get('token');
+        $request = Http::withHeaders([
+            'token' => $token
+        ])->get('note-taking.my.id/public/user/');
+        $user = json_decode($request);
+        ?>
+        <li class="header">selamat datang <?php echo $user->user->nama ?></li>
         <li class="active treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>All Notes</span>
@@ -36,14 +48,14 @@
           <ul class="treeview-menu">
             <!-- isi get All note-->
             <!-- request get all note  -->
-            
-            
+
+
             <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Notes 1</a></li>
             <li><a href="index2.html"><i class="fa fa-circle-o"></i> Notes 2</a></li>
           </ul>
         </li>
 
-        
+
         <!-- <li class="treeview">
           <a href="#">
             <i class="fa fa-files-o"></i>

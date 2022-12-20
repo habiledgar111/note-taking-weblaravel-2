@@ -27,7 +27,7 @@
         </div>
 
         <div class="box-body">
-         
+
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-11">
@@ -41,22 +41,34 @@
                         <div class="text-center">
                           <h1 class="h4 text-gray-900 mb-4"></h1>
                         </div>
-
-                          <form  action="{{ url('/actionregister') }}" method="post" class="user">
+<?php
+ $token = Cookie::get('token');
+    $request2 = Http::withHeaders([
+        'token' => $token
+    ])->get('note-taking.my.id/public/note/');
+    $note = json_decode($request2);
+    foreach($note as $note){
+        if($note->id == $id){
+            $judul = $note->judul;
+            $content = $note->content;
+?>
+                          <form  action="updateNote" method="post" class="user">
+                          @csrf
+                          <input type="hidden" id="id" name="id" value=<?php echo $id ?> >
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="Name" placeholder="Judul">
-                                </div>  
-                                <div class="form-group">
-                                    <textarea name="content" class="form-control form-control-user " placeholder="Content" cols="30" rows="12">{{ old('content') }}</textarea>
+                                    <input type="text" class="form-control form-control-user" id="judul" name="judul" placeholder="Judul" value="<?php echo $judul ?>">
                                 </div>
-                              
-                                <a href="{{ url('dashboard')}}" class="btn btn-primary btn-user btn-block">
-                                    Update Notes
-                                </a>
-                            </form>
+                                <div class="form-group">
+                                    <textarea name="content" id="content" class="form-control form-control-user " placeholder="Content" cols="30" rows="12" value="<?php echo $judul ?>"></textarea>
+                                </div>
 
+                                <input type="submit" value="submit" class="btn btn-primary btn-user btn-block">
+                            </form>
+<?php
+    }
+}?>
                             <hr>
-                            
+
                         </div>
                       </div>
                     </div>
@@ -68,8 +80,8 @@
 
         </div>
         <!-- /.box-body -->
-        
-      
+
+
 
         <!-- /.box-footer-->
       </div>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\authController;
+use App\Http\Controllers\noteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::get('/add', function () {
     return view('add');
 });
 
-Route::get('/update', function () {
+Route::get('/update/{id}', function () {
     return view('update');
 });
 
@@ -42,8 +43,9 @@ Route::post('note/add',[noteController::class,'addNote']);
 
 Route::post('/actionlogin',[authController::class,'actionlogin']);
 Route::post('/actionregister',[authController::class, 'actionregister']);
-Route::post('/updateNote/{id}',[noteController::class,'updateNote']);
-Route::post('/deleteNote/{id}',[noteController::class,'deleteNote']);
+Route::post('/addNote',[noteController::class,'addNote']);
+Route::get('/updateNote',[noteController::class,'updateNote']);
+Route::get('/deleteNote/{id}',[noteController::class,'deleteNote']);
 
 Route::get('/token', function (Request $request) {
     $token = $request->session()->token();

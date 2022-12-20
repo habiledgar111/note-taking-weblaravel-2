@@ -39,19 +39,17 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form  action="{{ url('/actionregister') }}" method="post" class="user">
+                            <form  action="actionregister" method="post" class="user">
                                 <div class="form-group">
-                                    <input type="text" class="form-control form-control-user" id="Name" placeholder="Name">
-                                </div>  
+                                    <input type="text" class="form-control form-control-user" id="nama" name="nama" placeholder="Name">
+                                </div>
                                <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="Email" placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-user" id="email"  name="email" placeholder="Email Address">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user" id="Password" placeholder="Password">
-                                </div>  
-                                <a href="{{ url('/')}}" class="btn btn-primary btn-user btn-block">
-                                    Register Account
-                                </a>
+                                    <input type="password" class="form-control form-control-user" id="password" name="password" placeholder="Password">
+                                </div>
+                                <input type="submit" value="submit" class="btn btn-primary btn-user btn-block">
                             </form>
                             <hr>
                             <div class="text-center">
